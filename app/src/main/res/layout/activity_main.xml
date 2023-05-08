@@ -19,10 +19,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias = ".4"/>
+        app:layout_constraintVertical_bias = ".3"/>
 
     <Button
         android:id="@+id/showPassword_button"
+        android:onClick="showPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_show"
@@ -35,6 +36,7 @@
 
     <Button
         android:id="@+id/hidePassword_button"
+        android:onClick="hidePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_hide"
@@ -47,6 +49,7 @@
 
     <Button
         android:id="@+id/ok_button"
+        android:onClick="viewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
@@ -54,6 +57,17 @@
         app:layout_constraintTop_toBottomOf="@+id/showPassword_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="35dp" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/ok_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
