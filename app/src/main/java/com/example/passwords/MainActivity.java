@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.passwords.fragments.EnterFragment;
+import com.example.passwords.fragments.ShowFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     Button hideButton, showButton;
@@ -18,12 +21,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        hideButton = findViewById(R.id.hidePassword_button);
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_enter_password, EnterFragment.class, null)
+                    .commit();
+        }
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_show_password, ShowFragment.class, null)
+                    .commit();
+        }
+
+        /*hideButton = findViewById(R.id.hidePassword_button);
         showButton = findViewById(R.id.showPassword_button);
-        hideButton.setEnabled(false);
+        hideButton.setEnabled(false);*/
     }
 
-    public void showPassword(View view) {
+    /*public void showPassword(View view) {
         EditText password = findViewById(R.id.password_text);
         //if (!password.getText().toString().equals("")) {
         password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
@@ -54,5 +72,5 @@ public class MainActivity extends AppCompatActivity {
         passwordView.setText("Your password: " + password.getText());
         passwordView.setVisibility(View.VISIBLE);
         password.setText("");
-    }
+    }*/
 }
