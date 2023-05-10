@@ -17,7 +17,7 @@ import com.example.passwords.R;
 public class EnterFragment extends Fragment {
 
     Button hideButton, showButton, okButton;
-    EditText password, passwordView;
+    EditText password;
     public EnterFragment() {
         super(R.layout.fragment_enter);
     }
@@ -29,13 +29,12 @@ public class EnterFragment extends Fragment {
         hideButton = getView().findViewById(R.id.hidePassword_button);
         okButton = getView().findViewById(R.id.ok_button);
         password = getView().findViewById(R.id.password_text);
-        passwordView = getView().findViewById(R.id.password_view);
 
-        showButton.setOnClickListener(new View.OnClickListener()
-        {
+        hideButton.setEnabled(false);
+
+        showButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 password.setSelection(password.length());
                 showButton.setEnabled(false);
@@ -43,11 +42,9 @@ public class EnterFragment extends Fragment {
             }
         });
 
-        hideButton.setOnClickListener(new View.OnClickListener()
-        {
+        hideButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 password.setSelection(password.length());
                 showButton.setEnabled(true);
@@ -55,16 +52,18 @@ public class EnterFragment extends Fragment {
             }
         });
 
-        okButton.setOnClickListener(new View.OnClickListener()
-        {
+        okButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (password.getText().toString().equals("")) {
                     Toast toast = Toast.makeText(getActivity(), "Please enter your password first", Toast.LENGTH_LONG);
                     toast.show();
                     return;
                 }
+                Bundle result = new Bundle();
+                result.putString("password", password.getText().toString());
+                getParentFragmentManager().setFragmentResult("requestKey", result);
+                password.setText("");
                 //TextView passwordView = findViewById(R.id.password_view);
                 /*passwordView.setText("Your password: " + password.getText());
                 passwordView.setVisibility(View.VISIBLE);
