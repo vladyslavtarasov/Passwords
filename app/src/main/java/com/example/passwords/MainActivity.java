@@ -35,42 +35,5 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment_show_password, ShowFragment.class, null)
                     .commit();
         }
-
-        /*hideButton = findViewById(R.id.hidePassword_button);
-        showButton = findViewById(R.id.showPassword_button);
-        hideButton.setEnabled(false);*/
     }
-
-    /*public void showPassword(View view) {
-        EditText password = findViewById(R.id.password_text);
-        //if (!password.getText().toString().equals("")) {
-        password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-        password.setSelection(password.length());
-        showButton.setEnabled(false);
-        hideButton.setEnabled(true);
-        //}
-    }
-
-    public void hidePassword(View view) {
-        EditText password = findViewById(R.id.password_text);
-        //if (!password.getText().toString().equals("")) {
-        password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        password.setSelection(password.length());
-        showButton.setEnabled(true);
-        hideButton.setEnabled(false);
-        //}
-    }
-
-    public void viewPassword(View view) {
-        EditText password = findViewById(R.id.password_text);
-        if (password.getText().toString().equals("")) {
-            Toast toast = Toast.makeText(this, "Please enter your password first", Toast.LENGTH_LONG);
-            toast.show();
-            return;
-        }
-        TextView passwordView = findViewById(R.id.password);
-        passwordView.setText("Your password: " + password.getText());
-        passwordView.setVisibility(View.VISIBLE);
-        password.setText("");
-    }*/
 }
