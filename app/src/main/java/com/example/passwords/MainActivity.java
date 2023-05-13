@@ -1,22 +1,16 @@
 package com.example.passwords;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.passwords.fragments.EnterFragment;
 import com.example.passwords.fragments.ShowFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button hideButton, showButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +29,11 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment_show_password, ShowFragment.class, null)
                     .commit();
         }
+    }
+
+
+    public void showPasswords(View view) {
+        Intent intent = new Intent(this, PasswordListActivity.class);
+        startActivity(intent);
     }
 }
