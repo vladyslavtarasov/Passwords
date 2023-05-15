@@ -64,10 +64,6 @@ public class EnterFragment extends Fragment {
                 result.putString("password", password.getText().toString());
                 getParentFragmentManager().setFragmentResult("requestKey", result);
                 password.setText("");
-                //TextView passwordView = findViewById(R.id.password_view);
-                /*passwordView.setText("Your password: " + password.getText());
-                passwordView.setVisibility(View.VISIBLE);
-                password.setText("");*/
             }
         });
     }
