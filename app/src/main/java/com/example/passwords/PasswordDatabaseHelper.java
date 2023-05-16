@@ -28,4 +28,9 @@ public class PasswordDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE);
         onCreate(db);
     }
+
+    public boolean deleteAllEntries(SQLiteDatabase db) {
+        db.execSQL("DELETE FROM " + TABLE);
+        return true;
+    }
 }
