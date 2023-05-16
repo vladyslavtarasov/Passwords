@@ -37,9 +37,11 @@ public class PasswordListActivity extends AppCompatActivity {
 
         while (cursor.moveToNext()){
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(PasswordDatabaseHelper._ID));
+            String website_string = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDatabaseHelper.COLUMN_WEBSITE));
+            String username_string = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDatabaseHelper.COLUMN_USERNAME));
             String password_string = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDatabaseHelper.COLUMN_PASSWORD));
 
-            Password password = new Password(id, password_string);
+            Password password = new Password(id, website_string, username_string, password_string);
             passwords.add(password);
         }
 

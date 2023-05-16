@@ -17,7 +17,7 @@ import com.example.passwords.R;
 public class EnterFragment extends Fragment {
 
     Button hideButton, showButton, okButton;
-    EditText password;
+    EditText website, username, password;
     public EnterFragment() {
         super(R.layout.fragment_enter);
     }
@@ -28,6 +28,8 @@ public class EnterFragment extends Fragment {
         showButton = getView().findViewById(R.id.showPassword_button);
         hideButton = getView().findViewById(R.id.hidePassword_button);
         okButton = getView().findViewById(R.id.ok_button);
+        website = getView().findViewById(R.id.website_text);
+        username = getView().findViewById(R.id.username_text);
         password = getView().findViewById(R.id.password_text);
 
         hideButton.setEnabled(false);
@@ -55,14 +57,20 @@ public class EnterFragment extends Fragment {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (password.getText().toString().equals("")) {
-                    Toast toast = Toast.makeText(getActivity(), "Please enter your password first", Toast.LENGTH_LONG);
+                if (website.getText().toString().equals("")
+                        || username.getText().toString().equals("")
+                        || password.getText().toString().equals("")) {
+                    Toast toast = Toast.makeText(getActivity(), "Please enter all the data first", Toast.LENGTH_LONG);
                     toast.show();
                     return;
                 }
                 Bundle result = new Bundle();
+                result.putString("website", website.getText().toString());
+                result.putString("username", username.getText().toString());
                 result.putString("password", password.getText().toString());
                 getParentFragmentManager().setFragmentResult("requestKey", result);
+                website.setText("");
+                username.setText("");
                 password.setText("");
             }
         });

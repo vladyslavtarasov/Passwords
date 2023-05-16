@@ -32,10 +32,14 @@ public class ShowFragment extends Fragment {
         getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                String website = bundle.getString("website");
+                String username = bundle.getString("username");
                 String password = bundle.getString("password");
                 passwordView.setText(getString(R.string.your_password, password));
 
                 ContentValues contentValues = new ContentValues();
+                contentValues.put(PasswordDatabaseHelper.COLUMN_WEBSITE, website);
+                contentValues.put(PasswordDatabaseHelper.COLUMN_USERNAME, username);
                 contentValues.put(PasswordDatabaseHelper.COLUMN_PASSWORD, password);
                 database.insert(PasswordDatabaseHelper.TABLE, null, contentValues);
 

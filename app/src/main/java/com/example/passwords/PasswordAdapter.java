@@ -27,6 +27,8 @@ public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull PasswordAdapter.ViewHolder holder, int position) {
         Password password = passwords.get(position);
+        holder.website.setText(password.getWebsite());
+        holder.username.setText(password.getUsername());
         holder.password.setText(password.getTitle());
     }
 
@@ -36,9 +38,13 @@ public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView website;
+        final TextView username;
         final TextView password;
         ViewHolder(View view){
             super(view);
+            website = itemView.findViewById(R.id.single_website);
+            username = itemView.findViewById(R.id.single_username);
             password = itemView.findViewById(R.id.single_password);
         }
     }
