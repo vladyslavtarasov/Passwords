@@ -5,13 +5,13 @@ public class Password {
 
     private final String website;
     private final String username;
-    private final String title;
+    private final String value;
 
     public Password(int id, String website, String username, String title) {
         this.id = id;
         this.website = website;
         this.username = username;
-        this.title = title;
+        this.value = title;
     }
 
     public int getId() {
@@ -26,7 +26,7 @@ public class Password {
         return username;
     }
 
-    public String getTitle() {
-        return title;
+    public String getValue() {
+        return value;
     }
 }

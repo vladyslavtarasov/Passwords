@@ -3,8 +3,11 @@ package com.example.passwords;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,23 +49,33 @@ public class PasswordListActivity extends AppCompatActivity {
         }
 
         Button clearButton = findViewById(R.id.clear_button);
+        EditText search = findViewById(R.id.search_text);
 
         if (passwords.isEmpty()) {
             TextView noPasswords = findViewById(R.id.no_passwords);
             recyclerView.setVisibility(View.GONE);
             clearButton.setVisibility(View.GONE);
+            search.setVisibility(View.GONE);
             noPasswords.setVisibility(View.VISIBLE);
             return;
         }
 
-        /*passwords.add(new Password(1, "qwerty1"));
-        passwords.add(new Password(2, "qwerty2"));
-        passwords.add(new Password(3, "qwerty3"));
-        passwords.add(new Password(4, "qwerty4"));*/
-
         clearButton.setVisibility(View.VISIBLE);
 
         adapter = new PasswordAdapter(passwords);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

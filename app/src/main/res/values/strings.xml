@@ -5,6 +5,7 @@
     <string name="password_hint">Enter your password:</string>
     <string name="password_show">Show password</string>
     <string name="password_hide">Hide password</string>
+    <string name="search_hint">Find website:</string>
     <string name="ok">OK</string>
     <string name="your_password">Your password: %1$s</string>
     <string name="show_passwords">Show all passwords</string>
