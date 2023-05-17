@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHolder> implements Filterable {
     private ArrayList<Password> passwords;
     private ArrayList<Password> passwordsFilter;
+    private View view;
 
     public PasswordAdapter(ArrayList<Password> passwords) {
         this.passwords = passwords;
@@ -24,16 +25,16 @@ public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHo
     @NonNull
     @Override
     public PasswordAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_password, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_password, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PasswordAdapter.ViewHolder holder, int position) {
         Password password = passwords.get(position);
-        holder.website.setText(password.getWebsite());
-        holder.username.setText(password.getUsername());
-        holder.password.setText(password.getValue());
+        holder.website.setText(view.getContext().getString(R.string.display_website, password.getWebsite()));
+        holder.username.setText(view.getContext().getString(R.string.display_username, password.getUsername()));
+        holder.password.setText(view.getContext().getString(R.string.display_password, password.getValue()));
     }
 
     @Override

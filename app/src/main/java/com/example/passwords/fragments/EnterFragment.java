@@ -64,6 +64,15 @@ public class EnterFragment extends Fragment {
                     toast.show();
                     return;
                 }
+
+                if (website.getText().toString().length() > 20
+                        || username.getText().toString().length() > 20
+                        || password.getText().toString().length() > 20) {
+                    Toast toast = Toast.makeText(getActivity(), "Website, username or password is too long", Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
+
                 Bundle result = new Bundle();
                 result.putString("website", website.getText().toString());
                 result.putString("username", username.getText().toString());

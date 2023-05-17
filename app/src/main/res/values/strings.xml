@@ -8,6 +8,9 @@
     <string name="search_hint">Find website:</string>
     <string name="ok">OK</string>
     <string name="your_password">Your password: %1$s</string>
+    <string name="display_website">Website: %1$s</string>
+    <string name="display_username">Username: %1$s</string>
+    <string name="display_password">Password: %1$s</string>
     <string name="show_passwords">Show all passwords</string>
     <string name="no_passwords">There are no passwords in the database.</string>
     <string name="back">Back</string>
