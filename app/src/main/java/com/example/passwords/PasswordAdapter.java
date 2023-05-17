@@ -54,7 +54,7 @@ public class PasswordAdapter extends RecyclerView.Adapter<PasswordAdapter.ViewHo
                     ArrayList<Password> filteredPasswords = new ArrayList<>();
                     for (Password password:
                             passwordsFilter) {
-                        if (password.getValue().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        if (password.getWebsite().toLowerCase().contains(constraint.toString().toLowerCase())) {
                             filteredPasswords.add(password);
                         }
                     }
