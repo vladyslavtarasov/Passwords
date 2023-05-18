@@ -11,13 +11,15 @@
         android:id="@+id/fragment_enter_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:name="com.example.passwords.fragments.EnterFragment" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_show_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:name="com.example.passwords.fragments.ShowFragment" />
 
     <Button
         android:id="@+id/button_show_passwords"
