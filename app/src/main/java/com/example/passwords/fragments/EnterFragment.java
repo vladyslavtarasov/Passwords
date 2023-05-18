@@ -60,7 +60,7 @@ public class EnterFragment extends Fragment {
                 if (website.getText().toString().equals("")
                         || username.getText().toString().equals("")
                         || password.getText().toString().equals("")) {
-                    Toast toast = Toast.makeText(getActivity(), "Please enter all the data first", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getActivity(), "Please enter all the data first", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 }
@@ -68,7 +68,7 @@ public class EnterFragment extends Fragment {
                 if (website.getText().toString().length() > 20
                         || username.getText().toString().length() > 20
                         || password.getText().toString().length() > 20) {
-                    Toast toast = Toast.makeText(getActivity(), "Website, username or password is too long", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getActivity(), "Website, username or password is too long", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 }
